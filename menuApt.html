@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Minimal example</title>
+    
+    <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
+
+    <!-- Your app -->
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-app="materializeApp" ng-controller="BodyController">
+<main>
+    <div class="container">
+            <h1 style="text-align: center">
+                <img border="0" src="logomenu.gif" width="122" height="109">
+            </h1>
+
+            <h4 style="font-size: 18px;" align="center">Apontamento de Chão de Fábrica</h4>
+
+            <div style="max-width: 500px;padding: 15px;margin: 0 auto;" ng-if="mostraBotoes == true">        
+                <div>
+                        <a class="waves-effect waves-light btn" style="width: 100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="inicioOrdem()">Iniciar Ordem de Produção</a>
+                </div> <br>           
+                <div>
+                          <a class="waves-effect waves-light btn" style="width: 100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Finalizar Ordem de Produção</a>
+                 </div><br>
+
+                  <div>
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Consultar Base de Dados</a>
+                  </div><br>                        
+
+                  <div>
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Zerar Apontamentos</a>
+                  </div><br>                                          
+             </div>
+        
+        
+        
+        
+            <div ng-if="mostraInicioOrdem == true" style="max-width: 500px;padding: 15px;margin: 0 auto;" >       
+                        <h2 style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-align: center; background-color: rgb(238, 238, 238);">
+                    <strong style="box-sizing: border-box; font-weight: 1024;">Início de Apontamento</strong></h2>
+
+                <div style="box-sizing: border-box;">
+                        <h3 style="box-sizing: border-box; font-family: inherit; font-weight: 500; line-height: 1.1; color: inherit; margin-top: 20px; margin-bottom: 10px; font-size: 24px;" align="center">
+                        Operador</h3>
+
+
+                     <div class="row">
+                    <div class="col s12">
+                      <div class="row">
+
+
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">account_circle</i>
+                          <input id="icon_prefix" type="text" class="validate" ng-blur="pesquisaOperario()" ng-model="operario" >
+                          <label for="icon_prefix">First Name</label> <br>
+                        </div>
+
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">phone</i>
+                          <input id="icon_telephone" type="tel" class="validate">
+                          <label for="icon_telephone">Telephone</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+            </div>
+        
+        
+    </div>
+</main>
+</body>
+</html>

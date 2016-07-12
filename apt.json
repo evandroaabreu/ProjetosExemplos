@@ -1,0 +1,311 @@
+[
+  {"Estabelecimento" : "1",
+   "totalapont":"10000",
+     "CentroCusto" : 
+     [
+         {
+           "cc":"32342",
+           "totalapont":"1000",
+           "totalprev":"1000",
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Usinagem",
+                "totalapont": "1000",
+                  "Operador" : 
+                  [
+                      { "nome" : "Jose",
+                        "totalapont": "500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "123456"
+                          },
+                          {
+                            "nroOrdem" : "678901"
+                          }
+                          
+                        ]   
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "666666"
+                          },
+                          {
+                            "nroOrdem" : "777777"
+                          }
+                          
+                        ]       
+                      }            
+                ]    
+             },
+               
+            {
+                "nomeMaquina": "Maquina2",
+                "totalapont": "8000",
+                  "Operador" : 
+                  [
+                      { "nome" : "Renato",
+                        "totalapont": "3500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "555555"
+                          },
+                          {
+                            "nroOrdem" : "444444"
+                          }
+                          
+                        ]    
+                      },
+                      { "nome" : "Maria",
+                        "totalapont": "4500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      }            
+                ]    
+             }               
+          ]    
+         },
+         
+         {
+           "cc":"99999",
+           "totalapont":"2040",
+           "totalprev":"1000",
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Maquina3",
+                "totalapont": "1600",
+                  "Operador" : 
+                  [
+                      { "nome" : "Ricardo Mauricio",
+                        "totalapont": "1500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "100",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      }            
+                ]    
+             }  
+          ]    
+         }
+    ]
+  } ,
+  {"Estabelecimento" : "2",
+    "totalapont":"5000",
+    "CentroCusto" : 
+     [
+         {
+           "cc":"88888",
+           "totalapont":"1000",
+           "totalprev":"1000",
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Maquina4",
+                "totalapont": "1600",
+                  "Operador" : 
+                  [
+                      { "nome" : "Ricardo Mauricio",
+                        "totalapont": "1500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "100",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      }            
+                ]    
+             }  
+          ]    
+         },
+        {
+           "cc":"77777",
+           "totalapont":"2000",
+           "totalprev":"2000",
+            
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Maquina5",
+                "totalapont": "1600",
+                  "Operador" : 
+                  [
+                      { "nome" : "Ricardo Mauricio",
+                        "totalapont": "1500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "100",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      }            
+                ]    
+             }  
+          ]    
+            
+         }         
+         
+     ]
+   
+  } ,
+  {"Estabelecimento" : "3",
+    "totalapont":"6000",
+    "CentroCusto" : 
+     [
+         {
+           "cc":"88888",
+           "totalapont":"1000",
+           "totalprev":"1000",
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Maquina4",
+                "totalapont": "1600",
+                  "Operador" : 
+                  [
+                      { "nome" : "Ricardo Mauricio",
+                        "totalapont": "1500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "100",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]   
+                      }            
+                ]    
+             }  
+          ]    
+         },
+        {
+           "cc":"77777",
+           "totalapont":"2000",
+           "totalprev":"2000",
+            
+           "Maquinas": 
+           [
+             {
+                "nomeMaquina": "Maquina5",
+                "totalapont": "1600",
+                  "Operador" : 
+                  [
+                      { "nome" : "Ricardo Mauricio",
+                        "totalapont": "1500",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      },
+                      { "nome" : "Paulo",
+                        "totalapont": "100",
+                        "Ordem" : 
+                        [ 
+                          {
+                            "nroOrdem" : "333333"
+                          },
+                          {
+                            "nroOrdem" : "222222"
+                          }
+                          
+                        ]
+                      }            
+                ]    
+             }  
+          ]    
+            
+         }         
+         
+     ]
+   
+  }
+    
+    
+]

@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+ 
+	<title>DBS System</title>
+    
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <script data-require="angular.js@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
+      <script type="text/javascript" src="appnovo.js"></script>
+    
+      <link rel="stylesheet" type="text/css"
+        href="resources/materialize/css/materialize.min.css">        
+        
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>        
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script>
+           function SomenteNumero(e){
+            var tecla=(window.event)?event.keyCode:e.which;   
+            if((tecla>47 && tecla<58)) return true;
+            else{
+                if (tecla==8 || tecla==0) return true;
+            else  return false;
+            }
+        } 
+        
+    </script>    
+    
+    
+    <style>
+        
+    
+        
+	</style>
+    
+  
+</head>
+ 
+<body bgcolor="#EEEEEE" ng-app="myApp" ng-controller="AptCtr">
+	
+<div >  
+    <br>
+    
+    <h1 style="text-align: center">
+        <img border="0" src="logomenu.gif" width="122" height="109">
+    </h1>
+    
+    <h4 style="font-size: 18px;" align="center">Apontamento de Chão de Fábrica</h4>
+     
+    <div style="max-width: 500px;padding: 15px;margin: 0 auto;" ng-if="mostraBotoes == true">        
+        <div>
+                <a class="waves-effect waves-light btn" style="width: 100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="inicioOrdem()">Iniciar Ordem de Produção</a>
+        </div> <br>           
+        <div>
+                  <a class="waves-effect waves-light btn" style="width: 100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="finalizarOrdem()">Finalizar Ordem de Produção</a>
+         </div><br>
+
+          <div>
+                  <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="consultaOrdem()">Consultar Base de Dados</a>
+          </div><br>                        
+
+     </div>
+    
+    
+    <!--INICIO DA ORDEM-->
+      <div  ng-show="mostraInicioOrdem" style="max-width: 500px;padding: 15px;margin: 0 auto;" >       
+                <h2 style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-align: center; background-color: rgb(238, 238, 238);">
+            <strong style="box-sizing: border-box; font-weight: 1024;">Início de Apontamento</strong></h2>
+
+          <br>
+         <div class="row">
+            <div class="col s12">
+              <div class="row">                                    
+                <br>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" ng-blur="pesquisaOperador(0)" ng-model="operador" >
+                  <label for="icon_prefix" style="font-size: 1.5rem;color:#000000">Operador</label> 
+                    <div style="margin-left: 3rem;font-size: 1.5rem;color:#FF0000;">{{nomeOperador}}</div><br>
+                </div>
+               
+                <div class="input-field col s12">
+                    <br>
+                  <i class="material-icons prefix">view_list</i>
+                  <input id="icon_ordem" type="text" class="validate" ng-blur="pesquisaOrdem(0)" ng-model="nroOrdem">
+                  <label for="icon_ordem" style="font-size: 1.5rem;color:#000000"  >Nr. Ordem</label>
+                </div>
+
+              <br>
+                <div class="input-field col s12">
+                    <br>
+                  <i class="material-icons prefix">grade</i>
+                  <input id="icon_ordem" type="text" class="validate" ng-blur="pesquisaOperacao(0)" ng-model="operacao">
+                  <label for="icon_ordem" style="font-size: 1.5rem;color:#000000"  >Operação</label>
+                </div>
+              
+                  <div ng-show="!habilitarConfirmarDados">
+                          <a class="waves-effect waves-light btn disabled" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Apontar Início da Ordem</a>
+                  </div><br> 
+                  
+                  <div ng-show="habilitarConfirmarDados">
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Apontar Início da Ordem</a>
+                  </div><br>                        
+                  
+                  <div>
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="voltarPagina(0)">Voltar</a>
+                  </div><br>                                          
+                  
+                  
+              </div>
+            </div>
+        </div>
+    
+      </div>
+        <!--INICIO DA ORDEM-->
+    
+       <!--FIM DA ORDEM-->
+      <div  ng-show="mostraFimOrdem" style="max-width: 500px;padding: 15px;margin: 0 auto;" >       
+                <h2 style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-align: center; background-color: rgb(238, 238, 238);">
+            <strong style="box-sizing: border-box; font-weight: 1024;">Fim de Apontamento</strong></h2>
+        <br>
+         <div class="row">
+            <div class="col s12">
+              <div class="row">                                    
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" ng-blur="pesquisaOperador(1)" ng-model="operador" >
+                  <label for="icon_prefix" style="font-size: 1.5rem;color:#000000">Operador</label> 
+                    <div style="margin-left: 3rem;font-size: 1.5rem;color:#FF0000;">{{nomeOperador}}</div><br>
+                </div>
+               
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">view_list</i>
+                  <input id="icon_ordem" type="text" class="validate" ng-blur="pesquisaOrdem(1)" ng-model="nroOrdem">
+                  <label for="icon_ordem" style="font-size: 1.5rem;color:#000000"  >Nr. Ordem</label>
+                </div>
+
+              <br>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">grade</i>
+                  <input id="icon_ordem" type="text" class="validate" ng-blur="pesquisaOperacao(1)" ng-model="operacao">
+                  <label for="icon_ordem" style="font-size: 1.5rem;color:#000000"  >Operação</label>
+                </div>
+                  
+              <br>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">thumb_up</i>
+                  <input id="icon_produzida" type="text" class="validate" ng-blur="pesquisaProduzido(1)" ng-model="produzido" onkeypress='return SomenteNumero(event)'>
+                  <label for="icon_produzida" style="font-size: 1.5rem;color:#000000"  >Qtd Produzida</label>
+                </div>                  
+                  
+              <br>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">thumb_down</i>
+                  <input id="icon_refugo" type="text" class="validate disabled" ng-blur="pesquisaRefugo(1)" ng-model="refugo" onkeypress='return SomenteNumero(event)'>
+                  <label for="icon_refugo" style="font-size: 1.5rem;color:#000000"  >Qtd Refugada</label>
+                </div>
+                  
+                  
+                  
+              <br>
+                <div class="col s12">
+                  <i class="material-icons prefix">done</i>
+                  <label for="icon_total" style="font-size: 1.5rem;color:#000000"  >Total : </label>
+                 <label for="icon_total" style="font-size: 1.5rem;color:#000000">{{totalProduzido}}</label>
+                </div>     
+                  <br>
+                  
+                  
+                  <div ng-show="!habilitarConfirmarDados">
+                          <a class="waves-effect waves-light btn disabled" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Apontar Fim da Ordem</a>
+                  </div><br>                                          
+                  
+                  <div ng-show="habilitarConfirmarDados">
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;">Apontar Fim da Ordem</a>
+                  </div><br>                        
+                  
+                  <div>
+                          <a class="waves-effect waves-light btn" style="width:100%;background-color: #337ab7;padding: 10px 16px;font-size: 18px;line-height: 1.3333333;border-radius: 6px;text-transform: none;height: 50px;" ng-click="voltarPagina(1)">Voltar</a>
+                  </div><br>                                          
+                  
+                  
+              </div>
+            </div>
+        </div>
+    
+      </div>    
+    
+    
+       <!--FIM DA ORDEM-->
+    
+        
+    </div>
+    
+        
+    
+    
+<!--</div>-->    
+    
+       <!--Import jQuery before materialize.js-->
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>-->
+        <script src="resources/materialize/js/materialize.min.js"></script>
+
+</body>
+</html>
